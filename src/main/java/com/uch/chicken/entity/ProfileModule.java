@@ -35,4 +35,15 @@ public class ProfileModule implements Serializable {
     @JoinColumn(name = "id_profile", referencedColumnName = "id_profile")
     @ManyToOne(fetch = FetchType.LAZY)
     private Profile idProfile;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = new Date();
+        updatedAt = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = new Date();
+    }
 }

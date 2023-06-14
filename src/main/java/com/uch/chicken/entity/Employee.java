@@ -40,4 +40,14 @@ public class Employee implements Serializable {
     @OneToMany(mappedBy = "idEmployee", fetch = FetchType.LAZY)
     private List<Orders> ordersList;
 
+    @PrePersist
+    protected void onCreate() {
+        createdAt = new Date();
+        updatedAt = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = new Date();
+    }
 }

@@ -40,4 +40,15 @@ public class Module implements Serializable {
     private List<Menu> menuList;
     @OneToMany(mappedBy = "idModule", fetch = FetchType.LAZY)
     private List<ProfileModule> profileModuleList;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = new Date();
+        updatedAt = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = new Date();
+    }
 }

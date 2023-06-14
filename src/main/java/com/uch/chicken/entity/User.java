@@ -45,4 +45,15 @@ public class User implements Serializable {
     @JoinColumn(name = "id_person", referencedColumnName = "id_person")
     @ManyToOne(fetch = FetchType.LAZY)
     private Person idPerson;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = new Date();
+        updatedAt = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = new Date();
+    }
 }

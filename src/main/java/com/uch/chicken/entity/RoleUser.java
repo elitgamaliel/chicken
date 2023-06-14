@@ -36,4 +36,14 @@ public class RoleUser implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private User idUser;
 
+    @PrePersist
+    protected void onCreate() {
+        createdAt = new Date();
+        updatedAt = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = new Date();
+    }
 }

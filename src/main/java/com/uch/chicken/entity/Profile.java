@@ -40,4 +40,15 @@ public class Profile implements Serializable {
     private List<UserProfile> userProfileList;
     @OneToMany(mappedBy = "idProfile", fetch = FetchType.LAZY)
     private List<ProfileModule> profileModuleList;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = new Date();
+        updatedAt = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = new Date();
+    }
 }

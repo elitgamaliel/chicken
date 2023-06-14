@@ -3,8 +3,9 @@ package com.uch.chicken.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.uch.chicken.entity.Category;
+import com.uch.chicken.entity.Client;
 
 @Repository
-public interface CategoryRepository extends JpaRepository<Category, Integer> {
+public interface ClientRepository extends JpaRepository<Client, Integer> {
+    
 }

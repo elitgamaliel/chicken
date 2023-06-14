@@ -75,4 +75,14 @@ public class Orders implements Serializable {
     @OneToMany(mappedBy = "idOrders", fetch = FetchType.LAZY)
     private List<DetailOrder> detailOrderList;
 
+    @PrePersist
+    protected void onCreate() {
+        createdAt = new Date();
+        updatedAt = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = new Date();
+    }
 }

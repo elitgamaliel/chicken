@@ -56,4 +56,14 @@ public class DetailOrder implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private Product idProduct;
 
+    @PrePersist
+    protected void onCreate() {
+        createdAt = new Date();
+        updatedAt = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = new Date();
+    }
 }

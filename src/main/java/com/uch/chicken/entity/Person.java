@@ -63,4 +63,14 @@ public class Person implements Serializable {
     @OneToMany(mappedBy = "idPerson", fetch = FetchType.LAZY)
     private List<User> userList;
 
+    @PrePersist
+    protected void onCreate() {
+        createdAt = new Date();
+        updatedAt = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = new Date();
+    }
 }

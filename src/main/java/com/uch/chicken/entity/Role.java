@@ -42,4 +42,15 @@ public class Role implements Serializable {
     private Date updatedAt;
     @OneToMany(mappedBy = "idRole", fetch = FetchType.LAZY)
     private List<RoleUser> roleUserList;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = new Date();
+        updatedAt = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = new Date();
+    }
 }

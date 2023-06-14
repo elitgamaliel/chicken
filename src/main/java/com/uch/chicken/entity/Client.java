@@ -39,4 +39,14 @@ public class Client implements Serializable {
     @OneToMany(mappedBy = "idClient", fetch = FetchType.LAZY)
     private List<Orders> ordersList;
 
+    @PrePersist
+    protected void onCreate() {
+        createdAt = new Date();
+        updatedAt = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = new Date();
+    }
 }

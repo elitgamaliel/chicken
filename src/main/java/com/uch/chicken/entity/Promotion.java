@@ -65,4 +65,15 @@ public class Promotion implements Serializable {
     private Date updatedAt;
     @OneToMany(mappedBy = "idPromotion", fetch = FetchType.LAZY)
     private List<PromotionProduct> promotionProductList;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = new Date();
+        updatedAt = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = new Date();
+    }
 }

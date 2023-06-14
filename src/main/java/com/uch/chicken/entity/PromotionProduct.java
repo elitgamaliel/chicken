@@ -35,4 +35,15 @@ public class PromotionProduct implements Serializable {
     @JoinColumn(name = "id_promotion", referencedColumnName = "id_promotion")
     @ManyToOne(fetch = FetchType.LAZY)
     private Promotion idPromotion;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = new Date();
+        updatedAt = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = new Date();
+    }
 }
