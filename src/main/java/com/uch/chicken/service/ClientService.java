@@ -1,6 +1,5 @@
 package com.uch.chicken.service;
 
-import com.uch.chicken.entity.Category;
 import com.uch.chicken.entity.Client;
 
 import java.util.List;

@@ -3,15 +3,15 @@ package com.uch.chicken.service.impl;
 import com.uch.chicken.entity.Client;
 import com.uch.chicken.repository.ClientRepository;
 import com.uch.chicken.service.ClientService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service
 public class ClientServiceImpl implements ClientService {
 
-    @Autowired
+    @Resource
     ClientRepository clientRepository;
 
     @Override
